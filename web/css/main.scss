@@ -29,15 +29,19 @@
 @import 'elements/media';
 @import 'elements/page';
 @import 'elements/paragraphs';
+@import 'elements/select';
 @import 'elements/tables';
+@import 'elements/tag';
 
 @import 'objects/section';
 @import 'objects/post-grid';
 @import 'objects/widget-categories';
 
+@import 'components/banner';
 @import 'components/buttons';
 @import 'components/blocks';
 @import 'components/carousel';
+@import 'components/destaque';
 @import 'components/header';
 @import 'components/footer';
 
@@ -78,4 +82,9 @@
       font-weight: bold;
     }
   }
+}
+
+.filter {
+  @include clearfix;
+  margin: 0 60px 0 0;
 }

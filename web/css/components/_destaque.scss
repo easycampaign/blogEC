@@ -1,0 +1,45 @@
+.category-destaque {
+  position: relative;
+
+  img {
+    height: 300px;
+    width: 50%;
+  }
+
+  .category-caption {
+    height: 300px;
+    width: 49%;
+    padding: 0;
+    display: inline-block !important;
+    position: initial;
+    vertical-align: top;
+
+    .category-title {
+      background-color: $gray;
+      height: 150px;
+    }
+
+    .category-description {
+      width: 100%;
+      background-color: $blue-dark;
+      height: 150px;
+      color: $white;
+    }
+
+    .category-info {
+      color: $pink;
+
+      .author,
+      .date {
+        display: inline-block;
+        color: $pink;
+        font-weight: bold;
+
+        h1, h2, h3, h4, h5, h6, p {
+          font-weight: bold;
+          margin: 0;
+        }
+      }
+    }
+  }
+}
