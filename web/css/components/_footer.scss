@@ -1,0 +1,67 @@
+.footer {
+  max-width: 100%;
+  overflow: hidden;
+  margin: 0;
+
+  &-container {
+    background-color: $blue-dark;
+
+    .information {
+      img {
+        display: block;
+        margin: 0 auto;
+        width: 50%;
+      }
+
+      .navigation {
+        display: block;
+        width: 70%;
+        margin: 0 auto;
+
+        .nav-link {
+          display: inline-block;
+          color: $white;
+        }
+      }
+    }
+
+    .social-network {
+      color: $white;
+      text-align: center;
+
+      h1, h2, h3, h4, h5, h6 {
+        margin: 0;
+      }
+
+      .navbar {
+        display: inline-flex;
+
+        .navbar-brand {
+          &:last-child {
+            margin: 0;
+          }
+        }
+      }
+
+      i {
+        color: $white;
+        font-size: 30px;
+      }
+    }
+  }
+
+  .copyright {
+    background-color: $pink;
+    color: $white;
+
+    p {
+      display: block;
+      width: 100%;
+      font-size: 1rem;
+      line-height: 3rem;
+      text-align: right;
+      margin: 0;
+      padding: 0 30px 0 0;
+    }
+  }
+}

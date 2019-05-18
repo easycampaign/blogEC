@@ -1,0 +1,81 @@
+/**
+ * ITCSS
+ *
+ *  1. Settings...........Configuration and variables
+ *  2. Tools..............Functions and mixins
+ *  3. Generic............Pure styles definitions
+ *  4. Vendors............Suppliers base-style inclusions
+ *  5. Elements...........Style assignment to html tags (like H1, Ul, A etc...)
+ *  6. Objects............Common non-cosmetic structural design patterns
+ *  7. Components.........Specific cosmetic elements of UI
+ *  8. Utilities..........Helpers and overrides
+ *  9. Modules............Deals with the style of modules.
+ *
+ */
+
+@import "settings/typography";
+@import "settings/colors";
+@import "settings/units";
+
+@import 'tools/mixins-hacks';
+@import 'tools/mixins';
+
+@import 'generic/normalize';
+@import 'generic/print';
+
+@import 'elements/headings';
+@import 'elements/links';
+@import 'elements/lists';
+@import 'elements/media';
+@import 'elements/page';
+@import 'elements/paragraphs';
+@import 'elements/tables';
+
+@import 'objects/section';
+@import 'objects/post-grid';
+@import 'objects/widget-categories';
+
+@import 'components/buttons';
+@import 'components/blocks';
+@import 'components/carousel';
+@import 'components/header';
+@import 'components/footer';
+
+@import 'utilities/utils';
+
+.main {
+  margin: 0 5%;
+}
+
+.about-us {
+  padding: 60px 0;
+  background-color: $gray;
+  max-width: 100%;
+  overflow: hidden;
+  margin: 0;
+
+  .sigla {
+    display: inline-block;
+    border-right: 1px solid $blue-dark;
+
+    img {
+      display: block;
+      width: 60%;
+      margin: 0 auto;
+    }
+  }
+
+  .description {
+    color: $blue-dark;
+    padding: 60px;
+    text-align: justify;
+
+    button {
+      width: 50%;
+      margin: 30px auto 0;
+      border-radius: 5px;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+  }
+}

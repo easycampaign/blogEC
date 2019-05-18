@@ -1,0 +1,33 @@
+.header {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  width: 50%;
+
+  .navigation {
+    display: inline-block;
+    .nav-link {
+      display: inline-block;
+      color: darken($gray, 40%);
+    }
+  }
+
+  .search {
+    display: inline-block;
+    position: relative;
+
+    .search-input {
+      border: 0;
+      border-bottom: 1px solid #ced4da;
+      border-radius: 0;
+      background: transparent;
+    }
+
+    i {
+      position: absolute;
+      right: 10px;
+      top: 30%;
+      color: #ced4da;
+    }
+  }
+}

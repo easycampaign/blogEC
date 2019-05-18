@@ -1,0 +1,49 @@
+.widget.categories {
+  max-width: 100%;
+  overflow: hidden;
+
+  .category {
+
+    .image {
+      vertical-align: top;
+      position: relative;
+      height: 500px;
+      background-color: $black;
+      padding: 0;
+
+      img {
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+      }
+
+      h1, h2, h3, h4,h5, h6, p, span {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        color: $white;
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+        font-size: 4rem;
+      }
+    }
+
+    .description {
+      padding: 30px;
+      vertical-align: top;
+      height: 500px;
+      color: $blue-dark;
+      box-sizing: border-box;
+      text-align: justify;
+
+      a {
+        text-align: center;
+        color: $pink;
+        font-size: 1.6rem;
+        text-decoration: underline;
+      }
+
+    }
+  }
+}

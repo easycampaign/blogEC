@@ -1,0 +1,112 @@
+/**
+* Mixins
+*/
+
+/**
+* Clearfix
+* Usage:
+@include clearfix;
+*/
+@mixin clearfix() {
+	&::after {
+		display: block;
+		clear: both;
+		content: "";
+	}
+}
+
+/**
+* Unstyled keeps list items block level, just removes default browser padding and list-style.
+* Usage:
+@include list-none;
+*/
+@mixin list-unstyled {
+	list-style: none;
+	padding-left: 0;
+}
+
+/**
+* Overlay
+* Usage
+@include overlay();
+*/
+@mixin overlay() {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+/**
+* Pseudo elements after / before
+* Usage
+@include pseudo;
+*/
+@mixin pseudo($display: block, $position: absolute, $content: ''){
+	content: $content;
+	display: $display;
+	position: $position;
+}
+
+/**
+* Set max width for an element and make it centered
+* Usage
+@include max-width(600px);
+*/
+@mixin max-width($max-width) {
+	max-width: $max-width;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+/**
+* Triangle
+* Usage:
+@include css-triangle(red, up, 20px);
+@include css-triangle(red, down);
+*/
+@mixin css-triangle($color, $direction, $size: 6px, $position: absolute, $round: false){
+	content: '';
+	display: block;
+	position: $position;
+	width: 0;
+	height: 0;
+	@if $round {
+		border-radius: 3px;
+	}
+	@if $direction == down {
+		border-left: $size solid transparent;
+		border-right: $size solid transparent;
+		border-top: $size solid $color;
+		margin-top: 0 - round($size / 2.5);
+	} @else if $direction == up {
+		border-left: $size solid transparent;
+		border-right: $size solid transparent;
+		border-bottom: $size solid $color;
+		margin-bottom: 0 - round($size / 2.5);
+	} @else if $direction == right {
+		border-top: $size solid transparent;
+		border-bottom: $size solid transparent;
+		border-left: $size solid $color;
+		margin-right: -$size;
+	} @else if  $direction == left {
+		border-top: $size solid transparent;
+		border-bottom: $size solid transparent;
+		border-right: $size solid $color;
+		margin-left: -$size;
+	}
+}
+
+/**
+* Input Placeholder
+* Usage:
+@include input-placeholder { color: $grey; }
+*/
+@mixin input-placeholder {
+	&.placeholder { @content; }
+	&:-moz-placeholder { @content; }
+	&::-moz-placeholder { @content; }
+	&:-ms-input-placeholder { @content; }
+	&::-webkit-input-placeholder { @content; }
+}

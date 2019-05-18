@@ -1,0 +1,25 @@
+/**
+ * Clearfix
+ */
+
+.clearfix {
+  @include clearfix();
+}
+
+/**
+ * Visibility
+ */
+
+.u-hidden {
+  display: none !important;
+}
+
+.align-vertical {
+  display: inline-flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  align-items: stretch;
+  height: 100%;
+}
