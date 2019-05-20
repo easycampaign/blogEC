@@ -32,6 +32,10 @@
 
       .carousel-item {
 
+        a {
+          height: inherit;
+        }
+
         img {
           height: 300px;
           width: 50%;
@@ -48,11 +52,37 @@
           .carousel-title {
             background-color: $gray;
             height: 150px;
+            padding: 30px;
+          }
+
+          .carousel-info {
+            display: inline-block;
+            color: $pink;
+            width: 100%;
+            text-align: left;
+
+            > h5 {
+              color: darken($gray, 70%);
+              text-align: left;
+            }
+
+            .author, .date {
+              display: inline-block;
+              font-family: sans-serif;
+
+              h1, h2, h3, h4, h5, h6, p {
+                font-family: sans-serif;
+                color: $pink;
+              }
+
+            }
           }
 
           .carousel-description {
             background-color: $blue-dark;
             height: 150px;
+            padding: 30px;
+            text-align: left;
           }
         }
 

@@ -2,13 +2,21 @@
   display: block;
   margin: 0 auto;
   text-align: center;
-  width: 50%;
+  width: 60%;
+  padding: 5px 0 0 0;
+  border-top: 1px solid $gray;
 
   .navigation {
     display: inline-block;
+    margin: 0 10% 0 0;
     .nav-link {
       display: inline-block;
       color: darken($gray, 40%);
+
+      &:hover {
+        color: $pink;
+        font-weight: bold;
+      }
     }
   }
 

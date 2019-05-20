@@ -1,8 +1,8 @@
 <?php
-  $db['db_host'] = "localhost";
-  $db['db_user'] = "root";
-  $db['db_pass'] = ""; // INSERIR POSSIVEL SENHA
-  $db['db_name'] = "dbblog";
+  $db['db_host'] = "162.241.2.244";
+  $db['db_user'] = "potetb96_easy";
+  $db['db_pass'] = "easy@potet";
+  $db['db_name'] = "potetb96_dbblog";
 
   foreach ($db as $key => $value) {
     define(strtoupper($key), $value);
@@ -13,6 +13,6 @@
   if(!$connection){
     echo "Ocorreu um erro ao tentar se conectar do o servidor de banco de dados;";
     echo "Favor contatar o administrator do sistema.";
-  } 
+  }
 
  ?>
