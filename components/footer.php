@@ -1,15 +1,15 @@
 <footer class="footer">
     <div class="row footer-container">
         <div class="col-sm-6 information">
-            <a href="/blog/index.phtml">
+            <a href="/blog/index.php">
                 <img src="/blog/media/logo/logo-white.png" alt="Logo Easy Campaign">
             </a>
             <nav class="nav navigation">
-                <a href="/blog/index.phtml" class="nav-link">Início</a>
-                <a href="/blog/category/inovation.phtml" class="nav-link">Inovations</a>
-                <a href="/blog/category/solutions.phtml" class="nav-link">Solutions</a>
-                <a href="/blog/category/cases.phtml" class="nav-link">Cases</a>
-                <a href="/blog/about-us.phtml" class="nav-link">Sobre nós</a>
+                <a href="/blog/index.php" class="nav-link">Início</a>
+                <a href="/blog/category/inovation.php" class="nav-link">Inovations</a>
+                <a href="/blog/category/solutions.php" class="nav-link">Solutions</a>
+                <a href="/blog/category/cases.php" class="nav-link">Cases</a>
+                <a href="/blog/about-us.php" class="nav-link">Sobre nós</a>
             </nav>
         </div>
         <div class="col-sm-6 social-network">

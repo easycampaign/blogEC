@@ -1,6 +1,6 @@
-<?php include "../components/header.phtml" ?>
+<?php include "../components/header.php" ?>
 
-<?php include "../components/banner.phtml" ?>
+<?php include "../components/banner.php" ?>
 
 <div class="category-description">
     Tecnologias disruptivas e outras inovações como Blockchain, Big Data, Inteligencia Artificial, etc.
@@ -15,7 +15,7 @@
     </select>
 </div>
 
-<?php include "../components/destaque.phtml"?>
+<?php include "../components/destaque.php"?>
 
 <div class="container">
     <div class="postagens">
@@ -64,4 +64,4 @@
     </div>
 </div>
 
-<?php include "../components/footer.phtml"?>
+<?php include "../components/footer.php"?>

@@ -1,6 +1,6 @@
-<?php include "components/header.phtml" ?>
+<?php include "components/header.php" ?>
 
-<?php include "components/carousel.phtml"?>
+<?php include "components/carousel.php"?>
 
 <div class="main">
     <div class="block latest-posts">
@@ -128,14 +128,14 @@
 
 <div class="row about-us">
     <div class="col-sm-6 sigla">
-        <a href="/blog/index.phtml">
+        <a href="/blog/index.php">
             <img src="/blog/media/logo/sigla-branco.png" alt="Sigla Easy Campaign">
         </a>
     </div>
     <div class="col-sm-6 align-vertical description">
         <p>A <strong>Easy Campaign</strong> é uma ferramenta para o gerenciamento inteligente e mais assertivo de campanhas de marketing digital para lojas virtuais.</p>
-        <a href="/blog/about-us.phtml" class="btn btn-outline">Conhecer mais</a>
+        <a href="/blog/about-us.php" class="btn btn-outline">Conhecer mais</a>
     </div>
 </div>
 
-<?php include "components/footer.phtml"?>
+<?php include "components/footer.php"?>

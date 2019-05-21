@@ -1,4 +1,4 @@
-<?php include "components/header.phtml" ?>
+<?php include "components/header.php" ?>
 
 <div class="main">
     <div class="block latest-posts">
@@ -126,7 +126,7 @@
 
 <div class="row about-us">
     <div class="col-sm-6 sigla">
-        <a href="/blog/index.phtml">
+        <a href="/blog/index.php">
             <img src="/blog/media/logo/sigla-branco.png" alt="Sigla Easy Campaign">
         </a>
     </div>
@@ -136,4 +136,4 @@
     </div>
 </div>
 
-<?php include "components/footer.phtml"?>
+<?php include "components/footer.php"?>

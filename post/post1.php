@@ -1,6 +1,6 @@
-<?php include "../components/header.phtml" ?>
+<?php include "../components/header.php" ?>
 
-<?php include "../components/banner.phtml" ?>
+<?php include "../components/banner.php" ?>
 
 <div class="container">
     <article>
@@ -15,4 +15,4 @@
     </article>
 </div>
 
-<?php include "../components/footer.phtml"?>
+<?php include "../components/footer.php"?>

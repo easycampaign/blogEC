@@ -3,7 +3,7 @@
         <div class="carousel-inner">
             <?php for ($i = 0; $i < 4; $i++) : ?>
             <div class="carousel-item <?= $i == 0 ? 'active' : '' ?>">
-                <a href="/blog/post/post1.phtml">
+                <a href="/blog/post/post1.php">
                     <span class="tag carousel-tag">
                     Solutions
                 </span>

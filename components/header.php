@@ -59,17 +59,17 @@
 </head>
 <body>
     <div class="logo text-center">
-        <a href="/blog/index.phtml">
+        <a href="/blog/index.php">
             <img src="/blog/media/logo/logo-blue.jpg" alt="Easy Campaign" class="rounded">
         </a>
     </div>
     <div class="header">
         <nav class="nav navigation">
-            <a href="/blog/index.phtml" class="nav-link">Início</a>
-            <a href="/blog/category/inovation.phtml" class="nav-link">Inovations</a>
-            <a href="/blog/category/solutions.phtml" class="nav-link">Solutions</a>
-            <a href="/blog/category/cases.phtml" class="nav-link">Cases</a>
-            <a href="/blog/about-us.phtml" class="nav-link">Sobre nós</a>
+            <a href="/blog/index.php" class="nav-link">Início</a>
+            <a href="/blog/category/inovation.php" class="nav-link">Inovations</a>
+            <a href="/blog/category/solutions.php" class="nav-link">Solutions</a>
+            <a href="/blog/category/cases.php" class="nav-link">Cases</a>
+            <a href="/blog/about-us.php" class="nav-link">Sobre nós</a>
         </nav>
         <div class="search">
             <input type="text" name="search" id="search" class="form-control search-input">
