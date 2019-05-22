@@ -1,5 +1,12 @@
 <?php include "components/header.php" ?>
 
+<?php include "components/carousel.php"?>
+
+<?php 
+    include "admin/functions/db.php";
+    include "admin/functions/functionsPosts.php";
+?>
+
 <div class="main">
     <div class="block latest-posts">
         <div class="block-title">
@@ -7,83 +14,148 @@
             <span>Últimos posts</span>
         </div>
         <div class="postagens">
-            <div class="card bg-dark text-white post destaque">
-                <img src="/blog/media/image/destaque.jpg" class="card-img">
-                <span class="tag post-tag">
-                    Solutions
-                </span>
-                <div class="card-img-overlay">
-                    <div class="card-title post-title">
-                        <h3>"Como fazer o seu blog aumentar a sua visibilidade na internet."</h3>
-                        <div class="post-info">
-                            <span class="author">
-                                <h5>Por Talissa Andrade</h5>
-                            </span> |
-                            <span class="date">04-05</span>
+            <?php
+                $primeiro = true;
+  
+                $query = "SELECT a.*, b.categoria_nome 
+                            FROM post a 
+                            JOIN categoria b on a.post_categoria_codigo = b.categoria_codigo
+                           where post_deletado = 0
+                           order by post_codigo desc";
+                $select_todos_posts = mysqli_query($connection, $query);
+             
+                while($row = mysqli_fetch_assoc($select_todos_posts)) {
+                    $post_id = $row['post_codigo'];
+                    $post_titulo = $row['post_titulo'];
+                    $post_conteudo = $row['post_conteudo'];
+                    $post_categotia = $row['categoria_nome'];
+                    $post_tags = $row['post_tags'];
+                    $post_imagem = $row['post_imagem'];
+                 
+                    $post_data_inclusao = $row['post_data_inclusao'];
+                    $post_usuario_inclusao = $row['post_usuario_inclusao'];
+                    $post_data_alteracao = $row['post_data_alteracao'];
+                    $post_usuario_alteracao = $row['post_usuario_alteracao'];
+             
+                    if (empty($post_data_alteracao)) {
+                        $post_data = $post_data_inclusao;
+                    } else {
+                        $post_data = $post_data_alteracao;
+                    }
+                 
+                    if (empty($post_data_alteracao)) {
+                        $select_usuario = recuperarDadosPorId($post_usuario_inclusao);
+                        $post_autor = $select_usuario;
+                    } else {
+                        $post_autor = $post_usuario_alteracao;
+                    }
+
+                    if ($primeiro) {
+                    ?> 
+                        <div class="card bg-dark text-white post destaque">
+                        <?php $primeiro = false; 
+                    } else {
+                    ?> 
+                        <div class="card bg-dark text-white post">
+                    <?php } ?>
+                    <img src=" <?php echo $post_imagem; ?> " class="card-img">
+                    <span class="tag post-tag"> <?php echo $post_categotia; ?> </span>
+                    <div class="card-img-overlay">
+                        <div class="card-title post-title">
+                            <h3> <?php echo $post_titulo; ?> </h3>
+                            <div class="post-info">
+                                <span class="author">
+                                    <h5>Por <?php echo $post_autor; ?> </h5>
+                                </span> |
+                                <span class="date"><?php echo $post_data; ?> </span>
+                            </div>
+                        </div>
+                        <div class="card-text post-description">
+                            <p><?php  echo substr($post_conteudo, 0, 100); ?> ...</p>
                         </div>
                     </div>
-                    <div class="card-text post-description">
-                        <p>Vivemos na era da internet onde somos atacados por anúncios de lojas de roupas, alimentos, servicos e eventos além de sites onde há sites que disponibilizam conteúdo...</p>
-                    </div>
                 </div>
-            </div>
-            <?php for ($i = 0; $i < 4; $i++) : ?>
-            <div class="card bg-dark text-white post">
-                <img src="/blog/media/image/destaque.jpg" class="card-img">
-                <span class="tag post-tag">
-                    Solutions
-                </span>
-                <div class="card-img-overlay">
-                    <div class="card-title post-title">
-                        <h3>"Como fazer o seu blog aumentar a sua visibilidade na internet."</h3>
-                        <div class="post-info">
-                            <span class="author">
-                                <h5>Por Talissa Andrade</h5>
-                            </span> |
-                            <span class="date">04-05</span>
-                        </div>
-                    </div>
-                    <div class="card-text post-description">
-                        <p>Vivemos na era da internet onde somos atacados por anúncios de lojas de roupas, alimentos, servicos e eventos além de sites onde há sites que disponibilizam conteúdo...</p>
-                    </div>
-                </div>
-            </div>
-            <?php endfor; ?>
-        </div>
+            <?php } ?>
+            
         <div class="more">
             <a href="#" class="legend">Ver todos os posts</a>
             <i class="fa fa-long-arrow-alt-right"></i>
         </div>
     </div>
+
     <div class="block more-comments">
         <div class="block-title">
             <i class="far fa-clock"></i>
             <span>Mais comentados</span>
         </div>
         <div class="postagens">
-            <?php for ($i = 0; $i < 3; $i++) : ?>
-                <div class="card bg-dark text-white post">
-                    <img src="/blog/media/image/destaque.jpg" class="card-img">
-                    <span class="tag post-tag">
-                    Solutions
-                </span>
-                    <div class="card-img-overlay">
-                        <div class="card-title post-title">
-                            <h3>"Como fazer o seu blog aumentar a sua visibilidade na internet."</h3>
-                            <div class="post-info">
-                            <span class="author">
-                                <h5>Por Talissa Andrade</h5>
-                            </span> |
-                                <span class="date">04-05</span>
+            <?php
+                $query = "SELECT count(*) as TOTAL, comentario_post_codigo FROM `comentarios` where comentario_deletado = 0 group by comentario_post_codigo ";
+                $count = mysqli_query($connection, $query);
+
+                while ($row = mysqli_fetch_assoc($count)) {
+                    $total = $row['TOTAL'];
+                    $codigo_post = $row['comentario_post_codigo'];
+                    
+                    if ($total >= 3) {
+                        $query = "SELECT a.*, b.categoria_nome 
+                                    FROM post a 
+                                    JOIN categoria b on a.post_categoria_codigo = b.categoria_codigo
+                                   WHERE post_codigo = $codigo_post
+                                     and post_deletado = 0";
+                        $select_posts = mysqli_query($connection, $query);
+                        
+                        $row = mysqli_fetch_assoc($select_posts);
+
+                        $post_id = $row['post_codigo'];
+                        $post_titulo = $row['post_titulo'];
+                        $post_conteudo = $row['post_conteudo'];
+                        $post_categotia = $row['categoria_nome'];
+                        $post_tags = $row['post_tags'];
+                        $post_imagem = $row['post_imagem'];
+                    
+                        $post_data_inclusao = $row['post_data_inclusao'];
+                        $post_usuario_inclusao = $row['post_usuario_inclusao'];
+                        $post_data_alteracao = $row['post_data_alteracao'];
+                        $post_usuario_alteracao = $row['post_usuario_alteracao'];
+                
+                        if (empty($post_data_alteracao)) {
+                            $post_data = $post_data_inclusao;
+                        } else {
+                            $post_data = $post_data_alteracao;
+                        }
+                    
+                        if (empty($post_data_alteracao)) {
+                            $select_usuario = recuperarDadosPorId($post_usuario_inclusao);
+                            $post_autor = $select_usuario;
+                        } else {
+                            $post_autor = $post_usuario_alteracao;
+                        }
+                        ?>
+                        <div class="card bg-dark text-white post">
+                            <img src=" <?php echo $post_imagem; ?> " class="card-img">
+                            <span class="tag post-tag"> <?php echo $post_categotia; ?> </span>
+                            <div class="card-img-overlay">
+                                <div class="card-title post-title">
+                                    <h3> <?php echo $post_titulo; ?> </h3>
+                                    <div class="post-info">
+                                        <span class="author">
+                                            <h5>Por <?php echo $post_autor; ?> </h5>
+                                        </span> |
+                                        <span class="date"><?php echo $post_data; ?> </span>
+                                    </div>
+                                </div>
+                                <div class="card-text post-description">
+                                    <p><?php  echo substr($post_conteudo, 0, 100); ?> ...</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="card-text post-description">
-                            <p>Vivemos na era da internet onde somos atacados por anúncios de lojas de roupas, alimentos, servicos e eventos além de sites onde há sites que disponibilizam conteúdo...</p>
-                        </div>
-                    </div>
-                </div>
-            <?php endfor; ?>
+                        <?php
+                    }
+                }
+            ?>
         </div>
+
         <div class="more">
             <a href="#" class="legend">Ver todos os posts</a>
             <i class="fa fa-long-arrow-alt-right"></i>
