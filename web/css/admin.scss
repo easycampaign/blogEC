@@ -1,0 +1,53 @@
+/*!
+
+ =========================================================
+ * Paper Dashboard 2 - v2.0.0
+ =========================================================
+
+ * Product Page: https://www.creative-tim.com/product/admin-2
+ * Copyright 2018 Creative Tim (http://www.creative-tim.com)
+
+ * Designed by www.invisionapp.com Coded by www.creative-tim.com
+
+ =========================================================
+
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+ */
+
+@import 'admin/variables';
+@import 'admin/mixins';
+
+// Plugins CSS
+@import "admin/plugins/plugin-animate-bootstrap-notify";
+@import "admin/plugins/plugin-perfect-scrollbar";
+
+// Core CSS
+@import "admin/buttons";
+@import "admin/inputs";
+@import "admin/typography";
+@import "admin/misc";
+@import "admin/checkboxes-radio";
+
+
+// components
+@import "admin/navbar";
+@import "admin/page-header";
+@import "admin/dropdown";
+@import "admin/alerts";
+@import "admin/images";
+@import "admin/nucleo-outline";
+@import "admin/tables";
+@import "admin/sidebar-and-main-panel";
+@import "admin/footers";
+@import "admin/fixed-plugin";
+
+// cards
+@import "admin/cards";
+@import "admin/cards/card-plain";
+@import "admin/cards/card-chart";
+@import "admin/cards/card-user";
+@import "admin/cards/card-map";
+@import "admin/cards/card-stats";
+
+@import "admin/responsive";

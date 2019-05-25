@@ -6,9 +6,19 @@
             </a>
             <nav class="nav navigation">
                 <a href="/blog/index.php" class="nav-link">Início</a>
-                <a href="/blog/category/inovation.php" class="nav-link">Inovations</a>
-                <a href="/blog/category/solutions.php" class="nav-link">Solutions</a>
-                <a href="/blog/category/cases.php" class="nav-link">Cases</a>
+                <?php
+                $query = "SELECT * FROM categoria where categoria_deletado = 0
+                           order by categoria_data_inclusao";
+                $menu = mysqli_query($connection, $query);
+
+                while($row = mysqli_fetch_assoc($menu)) {
+                    $titulo = $row['categoria_nome'];
+                    $id = $row['categoria_codigo'];
+                    ?>
+                    <a href="/blog/category/default.php?id=<?php echo $id; ?>" class="nav-link"><?php echo $titulo; ?></a>
+                    <?php
+                }
+                ?>
                 <a href="/blog/about-us.php" class="nav-link">Sobre nós</a>
             </nav>
         </div>
